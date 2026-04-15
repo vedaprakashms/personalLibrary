@@ -29,11 +29,11 @@ export const qrapi = {
     doc.pipe(stream)
 
     const options: GridOptions = {
-      rows: 8,
-      cols: 6,
-      qrSize: 80,
+      rows: 10,
+      cols: 8,
+      qrSize: 60,
       padding: 10,
-      margin: 10 // Offset from page edge
+      margin: 20 // Offset from page edge
     }
 
     for (let i = 0; i < dataList.length; i++) {
@@ -90,7 +90,7 @@ export const qrapi = {
       stream.on('error', (err) => reject(err))
     })
   },
-  generateKeydata: async (count: number = 48, length: number = 10): Promise<QRLabelData[]> => {
+  generateKeydata: async (count: number = 72, length: number = 10): Promise<QRLabelData[]> => {
     const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
     const keys: QRLabelData[] = []
     for (let i = 0; i < count; i++) {
