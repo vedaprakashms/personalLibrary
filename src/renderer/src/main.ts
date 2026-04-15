@@ -7,8 +7,9 @@ import Toast from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
 import './assets/base.css'
 import router from './router/'
+import { VueQrcodeReader } from 'vue-qrcode-reader'
 
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).use(router).use(Toast).mount('#app')
+createApp(App).use(router).use(Toast).use(VueQrcodeReader).mount('#app')
