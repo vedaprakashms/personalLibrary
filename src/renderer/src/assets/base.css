@@ -1,0 +1,50 @@
+nav {
+  border: 2px solid white;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.button {
+  margin: 1px;
+  padding: 4px;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 6;
+}
+
+@media print {
+  /* Set paper size to A4 */
+  @page {
+    size: A4;
+    margin: 0; /* Control browser margins */
+  }
+
+  /* Reset body and hide non-essential elements */
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Target the specific area to print */
+  .printable-area {
+    width: 210mm;
+    height: 297mm;
+    padding: 0mm; /* Internal margin */
+    box-sizing: border-box;
+    /* Optional: Ensure content doesn't break poorly */
+    page-break-inside: avoid;
+  }
+  .no-print {
+    display: none;
+  }
+}
