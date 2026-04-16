@@ -61,7 +61,7 @@ export const qrapi = {
           width: options.qrSize * 2,
           color: {
             dark: '#000000', // Black dots
-            light: '#FFFFFF' // White background
+            light: '#f3eded' // White background
           }
         }
         const qrBuffer: Buffer = await QRCode.toDataURL(dataList[i].text, options1)
