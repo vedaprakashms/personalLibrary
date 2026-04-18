@@ -6,8 +6,8 @@ const toast = useToast()
 const error = ref('')
 const result = ref('')
 const defaultConstraintOptions = [
-  { label: 'rear camera', constraints: { facingMode: 'environment' } },
-  { label: 'front camera', constraints: { facingMode: 'user' } }
+  // { label: 'rear camera', constraints: { facingMode: 'environment' } },
+  // { label: 'front camera', constraints: { facingMode: 'user' } }
 ]
 const paintOutline = (detectedCodes, ctx): void => {
   for (const detectedCode of detectedCodes) {
@@ -255,19 +255,7 @@ const selectedBarcodeFormats = computed(() => {
       </div>
     </div>
     <div>
-      <div class="boxed">
-        <qrcode-stream
-          hidden="true"
-          :constraints="selectedConstraints"
-          :track="trackFunctionSelected.value"
-          :formats="selectedBarcodeFormats"
-          @camera-on="onCameraReady"
-          @detect="onDetect"
-          @error="onError"
-        />
-      </div>
-      <br />
-
+      <h1>Camera Setting for QR scanning</h1>
       <fieldset role="group">
         <select v-model="selectedConstraints">
           <option
@@ -284,14 +272,24 @@ const selectedBarcodeFormats = computed(() => {
           </option>
         </select>
       </fieldset>
-
-      Last result: <b>{{ result }}</b>
+      <details name="example">
+        <div class="boxed">
+          <qrcode-stream
+            :constraints="selectedConstraints"
+            :track="trackFunctionSelected.value"
+            :formats="selectedBarcodeFormats"
+            @camera-on="onCameraReady"
+            @detect="onDetect"
+            @error="onError"
+          />
+        </div>
+      </details>
     </div>
   </div>
 </template>
 <style scoped>
 .boxed {
-  width: 480px;
+  width: 720px;
   height: auto;
 }
 </style>
