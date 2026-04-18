@@ -72,7 +72,7 @@ export const qrapi = {
         // Render Label Text
         doc
           .fontSize(8)
-          .fillColor('#333333')
+          .fillColor('#000000')
           .text(dataList[i].label, x, y + options.qrSize + 2, {
             width: options.qrSize,
             align: 'center',

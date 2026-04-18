@@ -249,25 +249,15 @@ const selectedBarcodeFormats = computed(() => {
         </select>
       </div>
     </div>
-    <div class="parent">
-      <div class="div1">
+    <div>
+      <div>
         <button class="button" @click="StoreBook" @keydown.enter="StoreBook">Add Book</button>
       </div>
     </div>
     <div>
-      <select v-model="selectedConstraints">
-        <option v-for="option in constraintOptions" :key="option.label" :value="option.constraints">
-          {{ option.label }}
-        </option>
-      </select>
-      <select v-model="trackFunctionSelected">
-        <option v-for="option in trackFunctionOptions" :key="option.text" :value="option">
-          {{ option.text }}
-        </option>
-      </select>
-      Last result: <b>{{ result }}</b>
       <div class="boxed">
         <qrcode-stream
+          hidden="true"
           :constraints="selectedConstraints"
           :track="trackFunctionSelected.value"
           :formats="selectedBarcodeFormats"
@@ -276,12 +266,32 @@ const selectedBarcodeFormats = computed(() => {
           @error="onError"
         />
       </div>
+      <br />
+
+      <fieldset role="group">
+        <select v-model="selectedConstraints">
+          <option
+            v-for="option in constraintOptions"
+            :key="option.label"
+            :value="option.constraints"
+          >
+            {{ option.label }}
+          </option>
+        </select>
+        <select v-model="trackFunctionSelected">
+          <option v-for="option in trackFunctionOptions" :key="option.text" :value="option">
+            {{ option.text }}
+          </option>
+        </select>
+      </fieldset>
+
+      Last result: <b>{{ result }}</b>
     </div>
   </div>
 </template>
 <style scoped>
 .boxed {
-  width: 720px;
+  width: 480px;
   height: auto;
 }
 </style>
