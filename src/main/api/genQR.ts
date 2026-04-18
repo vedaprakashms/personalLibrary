@@ -64,17 +64,17 @@ export const qrapi = {
       try {
         // Generate QR as Buffer for performance
 
-        const options1: QRCode.QRCodeRenderersOptions = {
+        const options1: QRCode.QRCodeToDataURLOptionsOther = {
           errorCorrectionLevel: 'H', // L, M, Q, H
-          type: 'png', // Render as PNG buffer
           margin: 1,
+          type: 'image/png',
           width: options.qrSize * 2,
           color: {
             dark: '#000000', // Black dots
             light: '#f3eded' // White background
           }
         }
-        const qrBuffer: Buffer = await QRCode.toDataURL(dataList[i].text, options1)
+        const qrBuffer = await QRCode.toDataURL(dataList[i].text, options1)
 
         // Render Image
         doc.image(qrBuffer, x, y, { width: options.qrSize })
