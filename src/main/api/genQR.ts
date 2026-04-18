@@ -17,6 +17,16 @@ export interface GridOptions {
   padding: number
   margin: number
 }
+
+export interface book {
+  _id?: string
+  Title: string
+  Author: string
+  Genre: string
+  Section: string
+  section2: string
+  uniqueId?: string
+}
 export const qrapi = {
   generateA4QRGrid: async (dataList: QRLabelData[], outputPath: string): Promise<QRLabelData[]> => {
     // A4 Paper Dimensions in Points: 595.28 x 841.89

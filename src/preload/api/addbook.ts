@@ -29,5 +29,9 @@ export const books = {
       console.error('Error adding book:', error)
       return new Error('Error adding book')
     }
+  },
+  getbooksList: async (): Promise<book[]> => {
+    const docs: book[] = await db.findAsync({})
+    return docs
   }
 }
