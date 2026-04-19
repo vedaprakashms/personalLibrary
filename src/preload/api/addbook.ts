@@ -1,5 +1,5 @@
 import Datastore from '@seald-io/nedb'
-
+import path from 'path'
 interface book {
   _id?: string
   Title: string
@@ -9,8 +9,12 @@ interface book {
   section2: string
   uniqueId: string
 }
+
 // Create a database
-const db = new Datastore({ filename: './data/books.db', autoload: true })
+const db = new Datastore({
+  filename: path.join('personalLib', 'books.db'),
+  autoload: true
+})
 
 export const books = {
   addBook: async (book: string): Promise<book | Error> => {

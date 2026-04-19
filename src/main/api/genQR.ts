@@ -3,7 +3,12 @@ import * as QRCode from 'Qrcode'
 import * as fs from 'fs'
 import { randomBytes } from 'crypto'
 import Datastore from '@seald-io/nedb'
-const db = new Datastore({ filename: './data/books.db', autoload: true })
+import path from 'path'
+// Create a database
+const db = new Datastore({
+  filename: path.join('personalLib', 'books.db'),
+  autoload: true
+})
 
 export interface QRLabelData {
   text: string // The data encoded in the QR

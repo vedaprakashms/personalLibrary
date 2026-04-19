@@ -22,5 +22,5 @@ if (process.contextIsolated) {
   // @ts-ignore (define in dts)
   window.api = api
   // @ts-ignore (define in dts)
-  window.addBook = addBook
+  window.books = books
 }

@@ -58,6 +58,10 @@ app.whenReady().then(() => {
 
   // IPC test
   ipcMain.on('ping', () => console.log('pong'))
+  ipcMain.handle('get-documents-path', () => {
+    console.log(app.getPath('documents'))
+    return app.getPath('documents')
+  })
   ipcMain.handle('genrateQR', async (event) => {
     console.log(event)
     try {
