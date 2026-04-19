@@ -34,12 +34,27 @@ export const books = {
     const docs: book[] = await db.findAsync({})
     return docs
   },
+  getbook: async (uid: string): Promise<book> => {
+    const docs: book[] = await db.findAsync({ uniqueId: uid })
+    console.log(docs)
+    return docs[0]
+  },
   deletebook: async (id: string) => {
     const numRemoved = await db.removeAsync({ uniqueId: id }, { multi: true })
     console.log(numRemoved)
     return numRemoved
   },
-  updatebook: async (id: string) => {
-    console.log('Updating the data for the ID' + id)
+  updatebook: async (book: book) => {
+    console.log('Updating the data for the ID: ' + book.uniqueId)
+
+    try {
+      const docs = await db.findAsync({ uniqueId: book.uniqueId })
+      console.log(docs)
+      const { numAffected } = await db.updateAsync(docs[0], book, { multi: true })
+      return numAffected
+    } catch (error) {
+      console.error('Error Updating book:', error)
+      return new Error('Error Updating book')
+    }
   }
 }

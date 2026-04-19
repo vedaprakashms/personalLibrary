@@ -16,7 +16,7 @@ interface book {
   Genre: string
   Section: string
   section2: string
-  uniqueId?: string
+  uniqueId: string
 }
 const bookStore = ref<book>({
   Title: '',
@@ -187,33 +187,19 @@ const selectedBarcodeFormats = computed(() => {
   >
 })
 //storeBook function
-const StoreBook = (): void => {
-  // Implementation for storing the book
-  console.log('Storing book:', bookStore.value)
-  window.books
-    .addBook(JSON.stringify(bookStore.value))
-    .then((r: book | Error) => {
-      if (r instanceof Error) {
-        console.error('Error storing book:', r)
-        toast.error('Error storing book: ' + r.message)
-      } else {
-        console.log('Book stored successfully')
-        toast.success('Book stored successfully with ID: ' + r.uniqueId)
-      }
-    })
-    .catch((error: Error) => {
-      console.error('Error storing book:', error)
-      toast.error('Error storing book: ' + error.message)
-    })
-    .finally(() => {
-      bookStore.value = {
-        Title: '',
-        Author: '',
-        Genre: '',
-        Section: '',
-        section2: ''
-      }
-    })
+const updatebook = (): void => {
+  // Implementation for Updating the book
+  console.log(JSON.parse(JSON.stringify(bookStore.value)))
+  window.books.updatebook(JSON.parse(JSON.stringify(bookStore.value))).then((e) => {
+    console.log(e)
+    toast.info('Book was updated under the ID : ' + bookStore.value.uniqueId)
+  })
+}
+const fetchBookdata = (): void => {
+  window.books.getbook(bookStore.value.uniqueId).then((r) => {
+    console.log(r)
+    bookStore.value = r
+  })
 }
 </script>
 <template>
@@ -259,7 +245,8 @@ const StoreBook = (): void => {
     </div>
     <div>
       <div>
-        <button class="button" @click="StoreBook" @keydown.enter="StoreBook">Add Book</button>
+        <button class="button" @click="fetchBookdata">Fetch Book Data</button>
+        <button class="button" @click="updatebook">Update Book</button>
       </div>
     </div>
     <div>
@@ -295,3 +282,9 @@ const StoreBook = (): void => {
     </div>
   </div>
 </template>
+<style scoped>
+.boxed {
+  width: 720px;
+  height: auto;
+}
+</style>
