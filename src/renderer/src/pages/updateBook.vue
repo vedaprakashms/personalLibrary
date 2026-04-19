@@ -216,7 +216,6 @@ const StoreBook = (): void => {
     })
 }
 </script>
-
 <template>
   <div>
     <div class="grid">
@@ -296,9 +295,3 @@ const StoreBook = (): void => {
     </div>
   </div>
 </template>
-<style scoped>
-.boxed {
-  width: 720px;
-  height: auto;
-}
-</style>

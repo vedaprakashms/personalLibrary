@@ -1,18 +1,20 @@
 # personallibrary
 
-An Electron application with Vue and TypeScript
+This library app is for all the bookworm's out there. Maintaining a book collection takes time and effort, but knowing where to put back the book is another story.
+This app should help anyone with a decent book collection to organize and keep their books intact.
 
-## Recommended IDE Setup
+## Features
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+1. Scannable code genration using default A4 page constraints, 80 QR codes genrated per page.
+2. Assign a single QR code to each book.
+3. Add Book to the embedded database.
+4. Addbook section to have QR scan using normal embedded camera or webcam.
+5.
 
-## Project Setup
+## Future Enhacment
 
-### Install
-
-```bash
-$ pnpm install
-```
+1. Excel export of bookset data
+2. regenration of QRcode set
 
 ### Development
 

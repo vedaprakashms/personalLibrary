@@ -7,7 +7,7 @@ interface book {
   Genre: string
   Section: string
   section2: string
-  uniqueId?: string
+  uniqueId: string
 }
 // Create a database
 const db = new Datastore({ filename: './data/books.db', autoload: true })
@@ -33,5 +33,13 @@ export const books = {
   getbooksList: async (): Promise<book[]> => {
     const docs: book[] = await db.findAsync({})
     return docs
+  },
+  deletebook: async (id: string) => {
+    const numRemoved = await db.removeAsync({ uniqueId: id }, { multi: true })
+    console.log(numRemoved)
+    return numRemoved
+  },
+  updatebook: async (id: string) => {
+    console.log('Updating the data for the ID' + id)
   }
 }
