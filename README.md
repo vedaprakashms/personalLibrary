@@ -1,4 +1,4 @@
-# personallibrary
+# Personal Library
 
 This library app is for all the bookworm's out there. Maintaining a book collection takes time and effort, but knowing where to put back the book is another story.
 This app should help anyone with a decent book collection to organize and keep their books intact.
