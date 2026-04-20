@@ -9,11 +9,14 @@ This app should help anyone with a decent book collection to organize and keep t
 2. Assign a single QR code to each book.
 3. Add Book to the embedded database.
 4. Addbook section to have QR scan using normal embedded camera or webcam.
-5.
+5. Update book function to help if any changes to be done on a stored book.
+6. Update book to have QR scanning as well.
+7. Single list of all books stored in the DataBase.
+8. Search Function based on all fields \* to be implimented yet
 
 ## Future Enhacment
 
-1. Excel export of bookset data
+1. Excel based import and export of bookset data
 2. regenration of QRcode set
 
 ### Development
